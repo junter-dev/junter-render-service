@@ -1,0 +1,7 @@
+FROM node:20-bullseye-slim
+
+ENV protoc_gen_grpc_version=2.0.4
+
+WORKDIR /usr/src/app
+
+RUN npm install -g --target_arch=x64 --target_platform=linux protoc-gen-grpc@${protoc_gen_grpc_version}

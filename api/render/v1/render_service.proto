@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package api.render.v1;
+
+service RenderService {
+  rpc Render (RenderRequest) returns (RenderResponse) {}
+  rpc RegisterComponent (RegisterComponentRequest) returns (RegisterComponentResponse) {}
+}
+
+message RenderRequest {
+  string object = 1;
+  string aliases = 2;
+}
+
+message RenderResponse {
+  string html = 1;
+}
+
+message RegisterComponentRequest {
+  string name = 1;
+  string content = 2;
+  string aliases = 3;
+}
+
+message RegisterComponentResponse {}

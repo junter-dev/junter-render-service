@@ -1,0 +1,37 @@
+{
+  "name": "render-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "module": "module",
+  "scripts": {
+    "generate": "make gen",
+    "lint": "make lint.js",
+    "build": "make build"
+  },
+  "author": "eastern.researchers",
+  "license": "MIT",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.20",
+    "@junter.dev/junter-node": "1.0.0-alpha-2",
+    "google-protobuf": "^3.21.2",
+    "jsdom": "^22.1.0",
+    "mongoose": "^7.3.4",
+    "prom-client": "^14.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.3",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.46.0",
+    "eslint-config-standard-with-typescript": "^37.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "rollup": "^3.27.1",
+    "typescript": "^5.1.6"
+  }
+}

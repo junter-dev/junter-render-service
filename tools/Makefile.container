@@ -1,0 +1,39 @@
+#@ BUILD
+
+current_dir = $(shell pwd)
+
+# build image with protobuf tools for codegen
+.PHONY: build.proto-tools
+build.proto-tools:
+	@docker build --platform linux/amd64 --tag $(BUILD_IMG):latest -f $(current_dir)/tools/Dockerfile.protobuf .
+
+#@ GENERATE PROTOBUF
+export BUILD_IMG?=proto-tools
+
+# generate protobuf for node.js and typescript
+.PHONY: gen.ts
+gen.ts:
+	@docker run --rm --platform linux/amd64 -v ./:/usr/src/app $(BUILD_IMG):latest /bin/bash -c \
+		"protoc-gen-grpc --js_out=import_style=commonjs,binary:./src/gen \
+		 	--grpc_out=grpc_js:./src/gen --proto_path ./api/render/v1 \
+			./api/render/v1/render_service.proto; protoc-gen-grpc-ts \
+			--ts_out=grpc_js:./src/gen \
+			--proto_path ./api/render/v1 \
+			./api/render/v1/render_service.proto"
+
+#@ BUILD
+export IMAGE_NAME?="junter-render-service"
+export VERSION?="v1.0.0"
+
+export PUSH_TO_REGISTRY=
+export PLATFORMS="linux/arm64"
+export LOAD_TARGET="docker"
+
+.PHONY: build.image
+build.image:
+	@docker buildx build . \
+    		--platform $(PLATFORMS) \
+    		--tag ghcr.io/$(IMAGE_NAME):$(VERSION) \
+    		--tag ghcr.io/$(IMAGE_NAME):latest \
+    		-o type=$(LOAD_TARGET) \
+    		$(PUSH_TO_REGISTRY)
