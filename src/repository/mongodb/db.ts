@@ -43,6 +43,7 @@ export class MongoDB implements IRepository {
     }
 
     public saveComponent(component: IComponent) {
+        // eslint-disable-next-line new-cap
         new this.componentModel({
             name: component.name,
             content: component.content,
@@ -61,6 +62,6 @@ export class MongoDB implements IRepository {
     }
 
     public isAvailable(): boolean {
-        return this.conn.readyState == Mongoose.STATES.connected
+        return this.conn.readyState === Mongoose.STATES.connected
     }
 }
