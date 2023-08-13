@@ -14,10 +14,10 @@ export class HTTPService {
         return createServer((request: IncomingMessage, response: ServerResponse) => {
             const parsedURL = new URL(request.url, `http://${request.headers.host}`)
 
-            if (parsedURL.pathname == '/metrics') {
+            if (parsedURL.pathname === '/metrics') {
                 this.metricsHandler(request, response)
                 return
-            } else if (parsedURL.pathname == '/ready') {
+            } else if (parsedURL.pathname === '/ready') {
                 this.readyHandler(request, response)
                 return
             }

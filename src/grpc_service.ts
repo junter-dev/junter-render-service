@@ -28,6 +28,7 @@ class RenderServiceServer implements KnownOnly<IRenderServiceServer> {
 
             callback(null, new RegisterComponentResponse())
         } catch (e) {
+            // eslint-disable-next-line n/no-callback-literal
             callback({
                 code: Status.INTERNAL,
                 message: `Failed to register component: ${e}`,
@@ -42,6 +43,7 @@ class RenderServiceServer implements KnownOnly<IRenderServiceServer> {
 
             callback(null, resp)
         } catch (e) {
+            // eslint-disable-next-line n/no-callback-literal
             callback({
                 code: Status.INTERNAL,
                 message: `Failed to render: ${e}`,
@@ -51,6 +53,6 @@ class RenderServiceServer implements KnownOnly<IRenderServiceServer> {
 }
 
 export function initGRPCService(server: grpc.Server, service: Service) {
-    // @ts-expect-error
+    // @ts-expect-error gRPC shit.
     server.addService(RenderServiceService, new RenderServiceServer(service))
 }
