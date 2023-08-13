@@ -4,7 +4,7 @@ on: [push, pull_request]
 jobs:
   linter:
     runs-on: ubuntu-22.04
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/main' }}
     container: node:20
     steps:
       - uses: actions/checkout@v3
