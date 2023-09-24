@@ -16,7 +16,7 @@
     "@junter.dev/junter-node": "1.0.0-alpha-2",
     "google-protobuf": "^3.21.2",
     "jsdom": "^22.1.0",
-    "mongoose": "^7.3.4",
+    "mongoose": "^7.5.2",
     "prom-client": "^14.2.0"
   },
   "devDependencies": {
