@@ -12,7 +12,7 @@
   "author": "eastern.researchers",
   "license": "MIT",
   "dependencies": {
-    "@grpc/grpc-js": "^1.8.20",
+    "@grpc/grpc-js": "^1.9.2",
     "@junter.dev/junter-node": "1.0.0-alpha-2",
     "google-protobuf": "^3.21.2",
     "jsdom": "^22.1.0",
