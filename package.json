@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@grpc/grpc-js": "^1.8.20",
-    "@junter.dev/junter-node": "1.0.0-alpha-2",
+    "@junter.dev/junter-node": "1.0.1",
     "google-protobuf": "^3.21.2",
     "jsdom": "^22.1.0",
     "mongoose": "^7.5.2",
